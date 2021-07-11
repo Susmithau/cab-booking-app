@@ -1,0 +1,58 @@
+<html>
+    <body>
+        <div class="login-dark">
+            <form #myForm="ngForm" (ngSubmit)="login()">
+                <h2 class="sr-only">Login Form</h2>
+                <div class="illustration"><i class="icon ion-ios-locked-outline"></i></div>
+                <div class="form-group">
+                    <label for="userName"><b>User Name:*</b></label>
+                    <input type="text" class="form-control" name="username" placeholder="User Name" required="required"
+                    id="userName" name="userName" required minlength="3" maxlength="15" #myUserName="ngModel"
+                    [(ngModel)]="addUserData.username">
+                    <span *ngIf="myUserName.touched && myUserName.errors?.required" class="text-danger medium">
+                    Name is mandatory!
+                    </span>
+                    <span *ngIf="myUserName.touched && myUserName.errors?.minlength" class="text-danger medium">
+                    Name should be minimum of 3 characters!
+                    </span>
+                    <span *ngIf="myUserName.touched && myUserName.errors?.maxlength" class="text-danger medium">
+                    Name should be maximum of 15 characters!
+                    </span>
+                </div>
+
+                <div class="form-group">
+                    <label for="password"><b>Password:</b></label>
+                    <input type="password" class="form-control" name="password" placeholder="Password" required="required"
+                    id="password" name="password" #myUserPassword="ngModel" required minlength="6"
+                    [(ngModel)]="addUserData.password">
+                    <span *ngIf="myUserPassword.touched && myUserPassword.errors?.required"
+                    class="text-danger medium">Password is required!
+                    </span>
+                    <span *ngIf="myUserPassword.touched && myUserPassword.errors?.minlength"
+                    class="text-danger medium">Password must be at least 6 characters!
+                    </span>
+                </div>
+
+                <div class="form-group form-check form-check-inline ">
+                    <label for="customer"><b>Customer</b></label>
+                    <input type="radio" class="form-control mx-2" id="customer" name="role" [(ngModel)]="addUserData.role"
+                    value="customer">
+
+                    <label for="driver"><b>Driver</b></label>
+                    <input type="radio" class="form-control mx-2" id="driver" name="role" [(ngModel)]="addUserData.role"
+                    value="driver">
+
+                    <label for="admin"><b>Admin</b></label>
+                    <input type="radio" class="form-control  mx-2" id="admin" name="role" [(ngModel)]="addUserData.role"
+                    value=admin>
+                </div>
+                <div class="form-group"><button class="btn btn-primary btn-block" type="submit" >Log In</button></div>
+            </form>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+    </body>
+
+</html>
+
+<!-- [disabled]="!myForm.valid" -->

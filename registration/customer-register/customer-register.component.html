@@ -1,0 +1,113 @@
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-8 col-xl-6">
+                <div class="row">
+                    <div class="col text-center title">
+                        <h1>Registration Form</h1>
+                    </div>
+                </div>
+                <form #myForm="ngForm" (ngSubmit)="registerCustomer()">
+                    <div class="row align-items-center">
+                        <div class="col mt-4">
+                            <label for="customerUserName" style="font-size: 15px; "><b>Full Name:*</b></label>
+                            <input type="text" class="form-control" name="customerUserName" required="required"
+                                placeholder="Enter Full Name" id="customerUserName" required minlength="3"
+                                maxlength="15" #myName="ngModel" [(ngModel)]="addCustomerData.customerUserName">
+                            <span *ngIf="myName.touched && myName.errors?.required" class="text-danger medium" >
+                                Name is mandatory!
+                            </span>
+                            <span *ngIf="myName.touched && myName.errors?.minlength" class="text-danger medium">
+                                Name should be minimum of 3 characters!
+                            </span>
+                            <span *ngIf="myName.touched && myName.errors?.maxlength" class="text-danger medium">
+                                Name should be maximum of 15 characters!
+                            </span> 
+                        </div>
+                    </div>
+                    <div class="row align-items-center mt-4">
+                        <div class="col">
+                            <label for="customerPassword" style="font-size: 15px;"><b>Password:</b></label>
+                            <input type="password" class="form-control" name="customerPassword" required="required"
+                                placeholder="Enter Password" id="customerPassword" required="required"
+                                id="adminPassword" required minlength="6" #password="ngModel"
+                                [(ngModel)]="addCustomerData.customerPassword">
+                            <span *ngIf="password.touched && password.errors?.required"
+                                class="text-danger medium">Password is
+                                required!</span>
+                            
+                        </div>
+                    </div>
+                    <div class="row align-items-center mt-4">
+                        <div class="col">
+                            <label for="customerAddress" style="font-size: 15px; "><b>Address:</b></label>
+                            <input type="text" class="form-control" name="customerAddress" required="required"
+                                id="customerAddress" required="required" id="adminAddress" minlength="3" maxlength="20"
+                                #myAddress="ngModel" [(ngModel)]="addCustomerData.customerAddress">
+                            <span *ngIf="myAddress.touched && myAddress.errors?.required" class="text-danger medium">
+                                Address is mandatory!
+                            </span>
+                            
+                        </div>
+                    </div>
+                    <div class="row align-items-center mt-4">
+                        <div class="col">
+                            <label for="customerMobileNumber" style="font-size: 15px; "><b>MobileNumber:</b></label>
+                            <input type="number" class="form-control" name="customerMobileNumber" required="required"
+                                id="customerMobileNumber" required="required" id="customerMobileNumber"
+                                #mobilenumber="ngModel" onKeyPress="if(this.value.length==10) return false;"
+                                #myMobile="ngModel" [(ngModel)]="addCustomerData.customerMobileNumber">
+                             <span class="help-bpx text-danger medium" *ngIf="myMobile.touched && !myMobile.valid"> Mobile
+                                Number is required!
+                            </span> 
+                        </div>
+                    </div>
+                    <div class="row align-items-center mt-4">
+                        <div class="col">
+                            <label for="customerEmail" style="font-size: 15px; "><b>Email:</b></label>
+                            <input type="email" class="form-control" name="customerEmail" id="customerEmail"
+                                required="required" id="adminEmail" #myEmail="ngModel"
+                                [(ngModel)]="addCustomerData.customerEmail">
+                             <span *ngIf="myEmail.touched && myEmail.errors?.required" class="text-danger medium">Email is
+                                required!
+                            </span>
+                           
+                        </div>
+                    </div>
+                    <div class="row align-items-center mt-4">
+                        <div class="col">
+                            <label for="username" style="font-size: 15px; "><b>Username:</b></label>
+                            <input type="text" class="form-control" name="username" required="required" id="username"
+                                required minlength="3" maxlength="15" #myUserName="ngModel"
+                                [(ngModel)]="addCustomerData.userId.username">
+                            <span *ngIf="myUserName.touched && myUserName.errors?.required" class="text-danger medium">
+                                Name is mandatory! 
+                            </span>
+                            <span *ngIf="myUserName.touched && myUserName.errors?.minlength" class="text-danger medium">
+                                Name should be minimum of 3 characters!
+                            </span>
+                            <span *ngIf="myUserName.touched && myUserName.errors?.maxlength" class="text-danger medium">
+                                Name should be maximum of 15 characters!
+                            </span> 
+                        </div>
+                    </div>
+                    <div class="row align-items-center mt-4">
+                        <div class="col">
+                            <label for="password" style="font-size: 15px; "><b>Password:</b></label>
+                            <input type="password" class="form-control" name="password" required="required"
+                                id="password" #myUserPassword="ngModel" 
+                                [(ngModel)]="addCustomerData.userId.password">
+                            <span *ngIf="myUserPassword.touched && myUserPassword.errors?.required"
+                                class="text-danger medium">Password is required
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                              <button class="btn btn-primary mt-4"  [disabled]="!myForm.valid" >Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>

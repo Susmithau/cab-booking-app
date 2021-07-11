@@ -1,0 +1,76 @@
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+     max-width: 400px; 
+     height: 400px;
+    margin: auto;
+    text-align: center;
+    
+  }
+  
+  .title {
+    color: grey;
+    font-size: 18px;
+  }
+  
+  button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  a {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+  }
+  
+  button:hover, a:hover {
+    opacity: 0.7;
+  }
+
+ .row{
+    /* margin-left: 200px;
+    margin-right: 50px; */
+    margin-top: 65px;
+  } 
+
+  @media (max-width: 576px) {  
+    .xs {color:red;font-weight:bold;}
+  }
+  
+  /* Small devices (landscape phones, 576px and up) */
+  @media (min-width: 576px) and (max-width:768px) {  
+    .sm {color:red;font-weight:bold;}
+  }
+   
+  /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+  @media (min-width: 768px) and (max-width:992px) {  
+   .md {color:red;font-weight:bold;}
+  }
+   
+  /* Large devices (desktops, 992px and up) */
+  @media (min-width: 992px) and (max-width:1200px) { 
+   .lg {color:red;font-weight:bold;}
+  }
+   
+  /* Extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {  
+      .xl {color:red;font-weight:bold;}
+  }
+
+  .danger {
+    background-color: rgb(17, 16, 16);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 45px;
+    opacity: 0.6;
+    
+  }
+

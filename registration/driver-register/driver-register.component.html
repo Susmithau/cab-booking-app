@@ -1,0 +1,152 @@
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-8 col-xl-6">
+                <div class="row">
+                    <div class="col text-center title">
+                        <h1>Registration Form</h1>
+                    </div>
+                </div>
+                <form #myForm="ngForm" (ngSubmit)="registerDriver()">
+                    <div class="row align-items-center">
+                        <div class="col mt-4">
+                            <label for="driverUserName" style="font-size: 15px; "><b>Full Name:*</b></label>
+                            <input type="text" class="form-control" name="driverUserName" required="required"
+                                placeholder="Enter Full Name" id="driverUserName" required minlength="3" maxlength="15"
+                                #myName="ngModel" [(ngModel)]="addDriverData.driverUserName">
+                            <span *ngIf="myName.touched && myName.errors?.required" class="text-danger medium">
+                                Name is mandatory!
+                            </span>
+                            <span *ngIf="myName.touched && myName.errors?.minlength" class="text-danger medium">
+                                Name should be minimum of 3 characters!
+                            </span>
+                            <span *ngIf="myName.touched && myName.errors?.maxlength" class="text-danger medium">
+                                Name should be maximum of 15 characters!
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row align-items-center mt-4">
+                        <div class="col">
+                            <label for="driverPassword" style="font-size: 15px; "><b>Password:</b></label>
+                            <input type="password" class="form-control" name="driverPassword"
+                                placeholder="Enter Password" required="required" id="driverPassword" required
+                                minlength="6" #password="ngModel" [(ngModel)]="addDriverData.driverPassword">
+                            <span *ngIf="password.touched && password.errors?.required"
+                                class="text-danger medium">Password is
+                                required!</span>
+                        </div>
+                    </div>
+                    <div class="row align-items-center mt-4">
+                        <div class="col">
+                            <label for="driverAddress" style="font-size: 15px; "><b>Address:</b></label>
+                            <input type="text" class="form-control" name="driverAddress" required="required"
+                                id="driverAddress" minlength="3" maxlength="20" #myAddress="ngModel"
+                                [(ngModel)]="addDriverData.driverAddress">
+                            <span *ngIf="myAddress.touched && myAddress.errors?.required" class="text-danger medium">
+                                Address is mandatory!
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row align-items-center mt-4">
+                        <div class="col">
+                            <label for="driverMobileNumber" style="font-size: 15px; "><b>Mobile Number:</b></label>
+                            <input type="number" class="form-control" name="driverMobileNumber" required="required"
+                                id="driverMobileNumber" required="required" id="driverMobileNumber" #mobilenumber="ngModel"  
+                                onKeyPress="if(this.value.length==10) return false;"  #myMobile="ngModel"
+                                [(ngModel)]="addDriverData.driverMobileNumber">
+                                <span class="help-bpx text-danger medium" *ngIf="myMobile.touched && !myMobile.valid"> Mobile Number is required!
+                                </span>
+                        </div>
+                    </div>
+                    <div class="row align-items-center mt-4">
+                        <div class="col">
+                            <label for="driverEmail" style="font-size: 15px; "><b>Email:</b></label>
+                            <input type="email" class="form-control" name="driverEmail" required="required"
+                                id="driverEmail" #myEmail="ngModel" 
+                                [(ngModel)]="addDriverData.driverEmail">
+                            <span *ngIf="myEmail.touched && myEmail.errors?.required" class="text-danger medium">Email is
+                                required!
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="row align-items-center mt-4">
+                        <div class="col">
+                            <label for="driverLicenceNumber" style="font-size: 15px; "><b>License Number</b></label>
+                            <input type="number" class="form-control" name="driverLicenceNumber" required="required"
+                                id="driverLicenceNumber" required #Licence="ngModel"
+                                [(ngModel)]="addDriverData.driverLicenceNumber">
+                            <span *ngIf="Licence.touched && Licence.errors?.required" class="text-danger medium">
+                                License number is mandatory!
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="row align-items-center mt-4">
+                        <div class="col">
+                            <label for="Rating" style="font-size: 15px; "><b>Rating:</b></label>
+                            <input type="number" class="form-control" name="driverRating" required="required"
+                                id="driverRating" required #rating="ngModel" [(ngModel)]="addDriverData.driverRating">
+                            <span *ngIf="rating.touched && rating.errors?.required" class="text-danger medium">
+                                Enter your rating!
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row align-items-center mt-4">
+                        <div class="col">
+                            <label for="carType" style="font-size: 15px; "><b>Car Type:</b></label>
+                            <input type="text" class="form-control" name="carType" required="required" id="carType"
+                                required #cartype="ngModel" [(ngModel)]="addDriverData.cab.carType">
+                            <span *ngIf="cartype.touched && cartype.errors?.required" class="text-danger medium">
+                                Enter your cab type!
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row align-items-center mt-4">
+                        <div class="col">
+                            <label for="perKmRate" style="font-size: 15px; "><b>Per Kilometer Rate:</b></label>
+                            <input type="number" class="form-control" name="perKmRate" required="required"
+                                id="perKmRate" required #rate="ngModel" [(ngModel)]="addDriverData.cab.perKmRate">
+                            <span *ngIf="rate.touched && cartype.errors?.required" class="text-danger medium">
+                                Specify the per kilometer rate !
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="row align-items-center mt-4">
+                        <div class="col">
+                            <label for="username" style="font-size: 15px; "><b>Username:</b></label>
+                            <input type="text" class="form-control" name="username" required="required" id="username"
+                                required minlength="3" maxlength="15" #myUserName="ngModel"
+                                [(ngModel)]="addDriverData.userId.username">
+                            <span *ngIf="myUserName.touched && myUserName.errors?.required" class="text-danger medium">
+                                Name is mandatory!
+                            </span>
+                            <span *ngIf="myUserName.touched && myUserName.errors?.minlength" class="text-danger medium">
+                                Name should be minimum of 3 characters!
+                            </span>
+                            <span *ngIf="myUserName.touched && myUserName.errors?.maxlength" class="text-danger medium">
+                                Name should be maximum of 15 characters!
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row align-items-center mt-4">
+                        <div class="col">
+                            <label for="password" style="font-size: 15px; "><b>Password:</b></label>
+                            <input type="password" class="form-control" name="password" required="required"
+                                id="password" #myUserPassword="ngModel" 
+                                [(ngModel)]="addDriverData.userId.password">
+                            <span *ngIf="myUserPassword.touched && myUserPassword.errors?.required"
+                                class="text-danger medium">Password is required
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary mt-4" [disabled]="!myForm.valid">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>

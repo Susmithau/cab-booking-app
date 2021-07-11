@@ -1,0 +1,118 @@
+<body>
+    <div class="signup-form">
+        <form #myForm="ngForm" (ngSubmit)="registerAdmin(myForm)">
+            <h2>Register</h2>
+
+            <div class="form-group">
+                <div class="col">
+                    <input type="text" class="form-control" name="adminUserName" placeholder="Enter Your name"
+                        required="required" id="adminUserName" required minlength="3" maxlength="15" #myName="ngModel"
+                        [(ngModel)]="addAdminData.adminUserName">
+                    <!-- <span *ngIf="myName.touched && myName.errors?.required" class="text-danger small">
+                        Name is mandatory!
+                    </span>
+                    <span *ngIf="myName.touched && myName.errors?.minlength" class="text-danger small">
+                        Name should be minimum of 3 characters!
+                    </span>
+                    <span *ngIf="myName.touched && myName.errors?.maxlength" class="text-danger small">
+                        Name should be maximum of 15 characters!
+                    </span> -->
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col">
+                    <input type="password" class="form-control" name="adminPassword" placeholder="Password"
+                        required="required" id="adminPassword" required minlength="6" #password="ngModel"
+                        [(ngModel)]="addAdminData.adminPassword">
+                    <!-- <span *ngIf="password.touched && password.errors?.required" class="text-danger small">Password is
+                        required!</span>
+                    <span *ngIf="password.touched && password.errors?.minlength" class="text-danger small">Password must
+                        be at least 6 characters!</span> -->
+                </div>
+            </div>
+               
+            <div class="form-group">
+                <div class="col">
+                    <input type="text" class="form-control" name="adminAddress" placeholder="Address"
+                        required="required" id="adminAddress" minlength="3" maxlength="20" #myAddress="ngModel"
+                        [(ngModel)]="addAdminData.adminAddress">
+                        <!-- <span *ngIf="myAddress.touched && myAddress.errors?.required" class="text-danger small">
+                            Address is mandatory!
+                        </span>
+                        <span *ngIf="myAddress.touched && myAddress.errors?.minlength" class="text-danger small">
+                            Address should be minimum of 3 characters!
+                        </span>
+                        <span *ngIf="myAddress.touched && myAddress.errors?.minlength" class="text-danger small">
+                            Address should be maximum of 20 characters!
+                        </span> -->
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col">
+                    <label for="adminMobileNumber">MobileNumber:</label>
+                    <input type="tel" class="form-control" name="adminMobileNumber" placeholder="+91"
+                        required="required" id="adminMobileNumber" minlength="10" maxlength="10" pattern="[0-9]*"
+                        patternletter="[^[a-zA-Z \-\']+" #myMobile="ngModel"
+                        [(ngModel)]="addAdminData.adminMobileNumber">
+                    <!-- <span *ngIf="myMobile.touched && myMobile.errors?.minlength" class="text-danger small">
+                        Mobile Number should be of 10 numbers!
+                    </span>
+                    <span *ngIf="myMobile.touched && !myMobile.hasError('pattern')" class="text-danger small">Mobile
+                        number required with length 10!</span>
+                    <span *ngIf="myMobile.touched && !myMobile.hasError('patternletter')"
+                        class="text-danger small">Mobile number cannot have letters!</span> -->
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col">
+                    <input type="email" class="form-control" name="adminEmail" placeholder="Email-Id"
+                        required="required" id="adminEmail" #myEmail="ngModel"
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [(ngModel)]="addAdminData.adminEmail">
+                    <!-- <span *ngIf="myEmail.touched && myEmail.errors?.required" class="text-danger small">Email is
+                        required!
+                    </span>
+                    <span *ngIf="myEmail.touched && myEmail.errors?.pattern" class="text-danger small">Enter a valid
+                        Email address!
+                    </span> -->
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col">
+                    <input type="text" class="form-control" name="username" placeholder="UserName" required="required"
+                        id="username" required minlength="3" maxlength="15" #myUserName="ngModel" [(ngModel)]="addAdminData.userId.username">
+                    <!-- <span *ngIf="myUserName.touched && myUserName.errors?.required" class="text-danger small">
+                        Name is mandatory!
+                    </span>
+                    <span *ngIf="myUserName.touched && myUserName.errors?.minlength" class="text-danger small">
+                        Name should be minimum of 3 characters!
+                    </span>
+                    <span *ngIf="myUserName.touched && myUserName.errors?.maxlength" class="text-danger small">
+                        Name should be maximum of 15 characters!
+                    </span> -->
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col">
+                    <input type="password" class="form-control" name="password" placeholder="Password"
+                        required="required" id="password" #myUserPassword="ngModel" required minlength="6"
+                        [(ngModel)]="addAdminData.userId.password">
+                    <!-- <span *ngIf="myUserPassword.touched && myUserPassword.errors?.required"
+                        class="text-danger small">Password is required
+                    </span>
+                    <span *ngIf="myUserPassword.touched && myUserPassword.errors?.minlength"
+                        class="text-danger small">Password must be at least 6 characters!
+                    </span> -->
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-success btn-lg btn-block">Register</button>
+            </div>
+        </form>
+    </div>
+</body>

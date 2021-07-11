@@ -1,0 +1,87 @@
+<nav>
+  <ul class="nav nav-tabs navbar-light py-2" style="background-color: #000000; ">
+    <li class="nav-item">
+      <a class="navbar-brand" href="#">
+        <img src="assets/images/logo...png" alt="" width="180" height="50">
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link  " routerLink="home" style="color:white;"><b>HOME</b></a>
+    </li>
+
+    <li class="nav-item dropdown" *ngIf="getUser()==null">
+      <a id="reg" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+        aria-expanded="false" style="background-color:black; color:white;"><b>Register</b></a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" routerLink="customerreg">Customer</a>
+        <a class="dropdown-item" routerLink="driverreg">Driver</a>
+    <li style="background-color: black;">
+      <hr class="dropdown-divider">
+    </li>
+    <!-- <a class="dropdown-item dropdown-item disabled" routerLink="adminreg">Admin</a> -->
+    <a class="dropdown-item " routerLink="adminreg">Admin</a>
+    </div>
+    </li>
+
+    <li class="nav-item " *ngIf="getUser()==null">
+      <a class="nav-link" routerLink="authenticate" style="color:white;"><b>Login</b></a>
+    </li>
+
+    <li class="nav-item " *ngIf="getRole()=='customer' && getUser()!=null">
+      <a class="nav-link" [routerLink]="['add-trip', getUserId()]" style="color:white;">Book Trip</a>
+    </li>
+
+    <li class="nav-item " *ngIf="getRole()=='customer' && getUser()!=null">
+      <a class="nav-link" [routerLink]="['my-bookings', getUserId()]" style="color:white;">My Bookings</a>
+    </li>
+
+    <li class="nav-item " *ngIf="getRole()=='customer' && getUser()!=null">
+      <a class="nav-link" routerLink="best-drivers" style="color:white;">View Best Drivers</a>
+    </li>
+    
+    <li class="nav-item " *ngIf="getRole()=='customer' && getUser()!=null">
+      <a class="nav-link" [routerLink]="['edit-customer', getUserId()]" style="color:white;">Update Details</a>
+    </li>
+
+    <li class="nav-item " *ngIf="getRole()=='admin' && getUser()!=null">
+      <a class="nav-link" routerLink="list-customer" style="color:white;">View Customers</a>
+    </li>
+
+    <li class="nav-item " *ngIf="getRole()=='admin' && getUser()!=null">
+      <a class="nav-link" routerLink="list-driver" style="color:white;">View Drivers</a>
+    </li>
+
+    <li class="nav-item " *ngIf="getRole()=='admin' && getUser()!=null">
+      <a class="nav-link" routerLink="list-cab" style="color:white;">List Cabs</a>
+    </li>
+
+    <li class="nav-item " *ngIf="getRole()=='admin' && getUser()!=null">
+      <a class="nav-link" routerLink="count-cab" style="color:white;">Count Cabs</a>
+    </li>
+
+    <li class="nav-item " *ngIf="getRole()=='admin' && getUser()!=null">
+      <a class="nav-link" routerLink="alltrips" style="color:white;">View All Bookings</a>
+    </li>
+
+    <li class="nav-item " *ngIf="getRole()=='driver' && getUser()!=null">
+      <a class="nav-link" [routerLink]="['edit-driver', getUserId()]" style="color:white;">Update Details</a>
+    </li>
+
+    <li class="nav-item " *ngIf="getRole()=='driver' && getUser()!=null">
+      <a class="nav-link" [routerLink]="['list-trip', getUserId()]" style="color:white;">List Trips</a>
+    </li>
+
+    <div class="ml-auto">
+      <li class="nav-item " *ngIf="getUser()!=null">
+        <a class="nav-link" routerLink="logout" style="color:white;"><b>Logout</b></a>
+      </li>
+    </div>
+
+    <li class="nav-item ml-auto" *ngIf="getUser()==null">
+      <a class="nav-link  " routerLink="contact" style="color:white;"><b>CONTACT US </b><i class='fas fa-phone-square'
+          style='font-size:20px'></i></a>
+    </li>
+
+  </ul>
+</nav>
